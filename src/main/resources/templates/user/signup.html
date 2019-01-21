@@ -18,10 +18,10 @@
         <p class="text-center"><img src="#" th:src="@{/img/logo.png}" alt="logo"></p>
     </div>
     <form th:action="@{/user/new}" th:method="POST">
-        <input type="text" class="form-control" placeholder="First name" th:field="${newUser.firstName}" required>
-        <input type="text" class="form-control" placeholder="Last name" th:field="${newUser.lastName}" required>
-        <input type="email" class="form-control" placeholder="Email" th:field="${newUser.email}" required>
-        <input type="password" class="form-control" placeholder="Password" th:field="${newUser.password}" required>
+        <input type="text" id="firstName" class="form-control" placeholder="First name" th:field="${newUser.firstName}" required>
+        <input type="text" id="lastName" class="form-control" placeholder="Last name" th:field="${newUser.lastName}" required>
+        <input type="email" id="email" class="form-control" placeholder="Email" th:field="${newUser.email}" required>
+        <input type="password" id="password" class="form-control" placeholder="Password" th:field="${newUser.password}" required>
         <input type="submit" class="btn btn-social" value="SIGN UP">
     </form>
     <a href="#" th:href="@{/login}" class="login-action" title="login">

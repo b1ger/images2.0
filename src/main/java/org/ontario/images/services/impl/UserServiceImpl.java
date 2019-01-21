@@ -93,8 +93,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<ReadableUser> loadUserById(Long userId) {
-        return Optional.empty();
+    public Optional<User> loadUserById(Long userId) {
+        return userRepository.findOneById(userId);
     }
 
     @Override
