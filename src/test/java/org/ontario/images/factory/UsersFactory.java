@@ -1,5 +1,7 @@
 package org.ontario.images.factory;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.ontario.images.model.User;
 import org.ontario.images.web.api.request.NewUserRequest;
 
 public final class UsersFactory {
@@ -30,5 +32,35 @@ public final class UsersFactory {
                 UsersFactory.USER_EMAIL,
                 UsersFactory.USER_PASSWORD
         );
+    }
+
+    public static User createNotActivatedUserEntity() {
+        final User user = UsersFactory.createUser(
+                UsersFactory.USER_ID,
+                UsersFactory.USER_FIRSTNAME,
+                UsersFactory.USER_LASTNAME,
+                UsersFactory.USER_EMAIL,
+                false
+        );
+        user.setActivationKey(UsersFactory.USER_ACTIVATION_KEY);
+        return user;
+    }
+
+    private static User createUser(
+            final Long id,
+            final String email,
+            final String firstName,
+            final String lastName,
+            final boolean isActivated
+    ) {
+
+        final User user = new User();
+        user.setId(id);
+        user.setEmail(email);
+        user.setPassword(RandomStringUtils.random(60));
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setActivated(isActivated);
+        return user;
     }
 }

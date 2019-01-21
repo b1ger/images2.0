@@ -18,7 +18,7 @@ public interface UserService {
 
     Optional<UpdatableUser> loadUpdatableUserById(Long userId);
 
-    Optional<ReadableUser> loadUserById(Long userId);
+    Optional<User> loadUserById(Long userId);
 
     User loadUserByEmail(String email);
 
