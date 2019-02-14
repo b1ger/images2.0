@@ -2,7 +2,7 @@ logging.level.org.ontario.images=debug
 
 spring.datasource.type=com.zaxxer.hikari.HikariDataSource
 spring.datasource.url=jdbc:mysql://localhost:3306/images
-spring.datasource.username=admin
+spring.datasource.username=root
 spring.datasource.password=root
 
 spring.jpa.hibernate.ddl-auto=validate
