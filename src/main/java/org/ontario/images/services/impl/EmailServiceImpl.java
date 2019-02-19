@@ -27,7 +27,7 @@ public class EmailServiceImpl implements EmailService {
 
     private final SpringTemplateEngine templateEngine;
 
-    @Value("${spring.mail.username}")
+    @Value("b.gerashchencko@gmail.com")
     private String emailFrom;
 
     @Value("${-Demail.activation-base-url}")

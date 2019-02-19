@@ -5,11 +5,13 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.ontario.images.model.User;
+import org.ontario.images.services.EmailService;
 import org.ontario.images.services.UserService;
 import org.ontario.images.web.api.request.NewUserRequest;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.Optional;
 
@@ -28,10 +30,13 @@ public class UserControllerTest {
     @Mock
     private UserService userService;
 
+    @Mock
+    private EmailService emailService;
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        UserController controller = new UserController(userService);
+        UserController controller = new UserController(userService, emailService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 

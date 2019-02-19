@@ -68,4 +68,20 @@ public class UserController {
 
         return "user/update";
     }
+
+    @GetMapping("/user/activate/{id}/{activationKey}")
+    public String activeAccountAction(
+            @PathVariable("id") String id,
+            @PathVariable("activationKey") String activationKey
+    ) {
+        Optional<User> optional = userService.loadUserById(Long.valueOf(id));
+
+        User user = optional.orElseThrow(() -> new InternalServerException("Can't load user with id: " + id));
+        if (user.getActivationKey().equals(activationKey)) {
+            user.setActivated(true);
+            userService.updateUser(user);
+        }
+
+        return "forward:/login";
+    }
 }
