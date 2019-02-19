@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Demo Account Activation</title>
+    <title>Images Account Activation</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
@@ -12,8 +12,8 @@
     Your demo account has been created, please click on the URL below to
     activate it:
 
-    <a th:href="@{${baseUrl} + '/user/activate/' + ${user.activationKey}}"
-       th:text="@{${baseUrl} + '/user/activate/' + ${user.activationKey}}">
+    <a th:href="@{${baseUrl} + '/user/activate/' + ${user.id} + '/' + ${user.activationKey}}"
+       th:text="@{${baseUrl} + '/user/activate/' + ${user.id} + '/' + ${user.activationKey}}">
         Activation Link
     </a>
 </p>
@@ -21,7 +21,7 @@
 <p>
     <span>Regards, </span>
     <br/>
-    <em>Demo Team.</em>
+    <em>Images Team.</em>
 </p>
 </body>
 </html>

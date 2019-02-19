@@ -78,8 +78,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(UpdatableUser user) {
-        return null;
+    public User updateUser(User user) {
+        return this.userRepository.save(user);
     }
 
     @Override
